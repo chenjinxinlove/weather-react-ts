@@ -19,7 +19,7 @@ class App extends React.Component<{}, st> {
 
   componentDidMount () {
     setInterval(async () => {
-      let data = await this.getFetch('http://123.57.156.3/showyd/api/v1/pvyear'); 
+      let data = await this.getFetch('https://weixin.healthweather.cn/showyd/api/v1/pvyear'); 
       this.setState({
         value: data[0].value
       });
