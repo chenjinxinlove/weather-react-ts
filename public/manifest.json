@@ -1,15 +1,16 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
-  "icons": [
+  "short_name": "React App",//用户主屏
+  "name": "Create React App Sample",//用于横幅中
+  "icons": [//图标声明必须包括一个mime类型的image/png
     {
       "src": "favicon.ico",
       "sizes": "192x192",
       "type": "image/png"
     }
   ],
-  "start_url": "./index.html",
+  "start_url": "./index.html",//一个加载的start_url
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "#000000",//主题色与背景色，用于配置一些可定制的操作系统 UI 以提高用户体验，比如 Android 的状态栏、任务栏等。
+  "orientation": "landscape",//锁定屏幕旋转了
   "background_color": "#ffffff"
 }

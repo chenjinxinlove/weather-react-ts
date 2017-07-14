@@ -4,7 +4,44 @@ import Hello from '../components/Hello';
 
 const logo = require('./logo.svg');
 
-class App extends React.Component<{}, {}> {
+export interface st {
+  value: string;
+}
+
+class App extends React.Component<{}, st> {
+
+  constructor (props: {}) {
+    super(props);
+    this.state = {
+      value: '0'
+    };
+  }
+
+  componentDidMount () {
+    setInterval(async () => {
+      let data = await this.getFetch('http://123.57.156.3/showyd/api/v1/pvyear'); 
+      this.setState({
+        value: data[0].value
+      });
+    }, 1000);
+      
+  }
+  
+  getFetch = (url: string) => {
+    return new Promise((reslove, reject) => {
+      fetch(url)
+       .then((response) => {
+         return response.json();
+       })
+        .then( data => {
+          reslove(data);
+        })
+       .catch(err => {
+         reject(err);
+       }); 
+    });
+  }
+  
   render() {
     return (
       <div className="App">
@@ -17,6 +54,9 @@ class App extends React.Component<{}, {}> {
         </p>
         <div>
           <Hello />
+        </div>
+        <div>
+          {this.state.value}
         </div>
       </div>
     );
