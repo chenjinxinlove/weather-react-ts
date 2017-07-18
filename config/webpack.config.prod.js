@@ -149,7 +149,7 @@ module.exports = {
           /\.html$/,
           /\.(js|jsx)$/,
           /\.(ts|tsx)$/,
-          /\.css$/,
+          /\.(css|scss)$/,
           /\.json$/,
           /\.bmp$/,
           /\.gif$/,
@@ -202,6 +202,12 @@ module.exports = {
                     importLoaders: 1,
                     minimize: true,
                     sourceMap: true,
+                  },
+                },
+                {
+                  loader: require.resolve('sass-loader'),
+                  options: {
+                    importLoaders: 1,
                   },
                 },
                 {
